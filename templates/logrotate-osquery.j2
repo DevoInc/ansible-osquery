@@ -11,6 +11,7 @@
     notifempty
     compress
     delaycompress
+    copytruncate
     create 640 {{ syslog_user | default('root') }} adm
     sharedscripts
 }
@@ -26,6 +27,7 @@
     notifempty
     compress
     delaycompress
+    copytruncate
     create 640 {{ syslog_user | default('root') }} adm
     sharedscripts
 }
@@ -42,6 +44,7 @@
     notifempty
     compress
     delaycompress
+    copytruncate
     create 640 {{ syslog_user | default('root') }} adm
     sharedscripts
     # Ubuntu: parent directory has insecure permissions (It's world writable or writable by group which is not "root")
@@ -60,6 +63,7 @@
     notifempty
     compress
     delaycompress
+    copytruncate
     create 640 {{ syslog_user | default('root') }} adm
     sharedscripts
     su root {{ osquery_syslog_dir_group2 | default(varlog_group) }}
