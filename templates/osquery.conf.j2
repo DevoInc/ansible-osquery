@@ -48,17 +48,19 @@
     "worker_threads": "{{ osquery_worker_threads | default(2) }}",
 
     // Enable OS eventing publish subscribe APIs.
-    "disable_events": "{{ osquery_process_events | default(false) }}",
+{% if osquery_fim|bool%}
+    "disable_events": "False",
+{% endif %}
 
-{% if osquery_process_auditing|bool -%}
+{% if osquery_process_auditing|bool %}
     // Enable OS auditing
     "disable_audit": "False",
     "audit_allow_config": "True",
     "audit_allow_process_events": "True",
     "audit_allow_sockets": "True",
-{% endif -%}
+{% endif %}
 
-    logger_snapshot_event_type": "{{ osquery_logger_snapshot_event_type | default(true) }}"
+    "logger_snapshot_event_type": "{{ osquery_logger_snapshot_event_type | default(true) }}"
   },
 
   // Define a schedule of queries:
