@@ -4,11 +4,7 @@
 {{ flag }}
 {% endfor %}
 {% if osquery_process_auditing|bool %}
---disable_audit=false
---audit_allow_config=true
 --audit_persist=true
---audit_allow_process_events=true
---audit_allow_sockets=true
 {% endif %}
 {% if osquery_rsyslog|bool %}
 --enable_syslog

@@ -47,12 +47,18 @@
     // The number of threads for concurrent query schedule execution.
     "worker_threads": "{{ osquery_worker_threads | default(2) }}",
 
-    // Enable schedule profiling, this will fill in averages and totals for
-    // system/user CPU time and memory for every query in the schedule.
-    // Add a query: "select * from osquery_schedule" to record the performances.
-    //"enable_monitor": "{{ osquery_enable_monitor | default(true) }}",
+    // Enable OS eventing publish subscribe APIs.
+    "disable_events": "{{ osquery_process_events | default(false) }}",
 
-    "logger_snapshot_event_type": "{{ osquery_logger_snapshot_event_type | default(true) }}"
+{% if osquery_process_auditing|bool -%}
+    // Enable OS auditing
+    "disable_audit": "False",
+    "audit_allow_config": "True",
+    "audit_allow_process_events": "True",
+    "audit_allow_sockets": "True",
+{% endif -%}
+
+    logger_snapshot_event_type": "{{ osquery_logger_snapshot_event_type | default(true) }}"
   },
 
   // Define a schedule of queries:

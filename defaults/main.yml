@@ -13,7 +13,6 @@ osquery_debug_packages_install: false
 #osquery_events_expiry: 3600
 #osquery_verbose: false
 #osquery_worker_threads: 2
-#osquery_enable_monitor: true
 #osquery_logger_snapshot_event_type: true
 
 osquery_template: 'osquery.conf.j2'
