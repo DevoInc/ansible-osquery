@@ -121,6 +121,7 @@ osquery_fim_excludepaths:
 osquery_rsyslog: false
 ## conflict with auditd. choose one.
 ## https://osquery.readthedocs.io/en/stable/deployment/process-auditing/
+osquery_auditd_rate_limit: 1000
 osquery_process_auditing: false
 osquery_process_interval: 300
 osquery_socket_interval: 300
