@@ -119,6 +119,14 @@
       until: pkg_result is success
   when: osquery_process_auditing|bool
 
+- name: Ensure auditd disable
+  command: auditctl -e 0
+  when: osquery_process_auditing|bool
+
+- name: Ensure auditd config rate limit
+  command: auditctl -r {{ osquery_auditd_rate_limit }}
+  when: osquery_process_auditing|bool
+
 - name: get rsyslog version
   shell: >
     rsyslogd -v | awk -F'[ ,]' '/rsyslogd/ { print $2 }'

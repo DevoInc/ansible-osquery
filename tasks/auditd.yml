@@ -1,7 +1,0 @@
----
-
-- name: Ensure auditd disable
-  command: auditctl -e 0
-
-- name: Ensure auditd config rate limit
-  command: auditctl -r {{ osquery_auditd_rate_limit }}
