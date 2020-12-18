@@ -1,9 +1,10 @@
 ---
 galaxy_info:
+  role_name: osquery
   author: Devo Inc.
   description: Install and configure osquery
   company:
-  license: BSD
+  license: MIT
   min_ansible_version: 1.9
   platforms:
   - name: EL
